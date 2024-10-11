@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demand Wise - Opportunity</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <img src="Images/logo.png" alt="Logo" class="logo"/>
+            <a href="#" class="nav-item active"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-chart-bar"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-comments"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-lightbulb"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-headset"></i></a>
+        </div>
+        <div class="bottom-nav">
+            <a href="#" class="nav-item"><i class="fas fa-bell"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+    <div class="header" style="width: 170%;">
+    <h1><i class="fas fa-handshake" style="color: #4a148c;"></i> <span style="color:#4a148c">Demand Wise</span> - Opportunity</h1>
+    <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" placeholder="Search Anything" class="search-input">
+</div>
+<div class="date-picker">
+    <input type="date" id="start-date" value="2024-10-08">
+    <b class="separator"> - </b>
+    <input type="date" id="end-date" value="2024-10-11">
+</div>
+
+</div>
+
+    <div class="priority-goals-container">
+        <div class="card priority-focus">
+            <h2><i class="fas fa-bullseye"></i> Priority Focus <span style="float: right; font-size: 0.8em;">See All</span></h2>
+            <div class="metrics">
+                <div class="metric">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Today's Todo</h3>
+                    <p>7</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Today's Closure</h3>
+                    <p>3</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Suggested</h3>
+                    <p>4</p>
+                </div>
+            </div>
+        </div>
+        <div class="card achievements-and-kpis">
+    <div class="goals-achievements">
+        <h2><i class="fas fa-trophy"></i> Goals Achievements</h2>
+        <div style="text-align: center;">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#e0e0e0" stroke-width="10" />
+                <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary-color)" stroke-width="10" 
+                        stroke-dasharray="282.7" stroke-dashoffset="56.54" />
+                <text x="50" y="50" font-family="Arial" font-size="20" fill="var(--primary-color)" text-anchor="middle" dy=".3em">80%</text>
+            </svg>
+        </div>
+        <div class="goals-info">
+            <p><i class="fas fa-running" style="color: #4a148c;"></i> <b>Active Goals : </b> 15</p>
+            <p><i class="fas fa-flag-checkered" style="color: #4a148c;"></i> <b>Completed Goals : </b>11</p>
+        </div>
+    </div>
+
+    <div class="kpi-section">
+        <h2><i class="fas fa-chart-pie" style="padding-right: 10px;"></i> Key Performance Indicators (KPIs)</h2>
+        <ul>
+            <li><i class="fas fa-check-circle" style="padding-right: 10px;color: #4a148c;"></i> Conversion Rate : 45%</li>
+            <li><i class="fas fa-users" style="padding-right: 10px;color: #4a148c;"></i> Active Users : 200K</li>
+            <li><i class="fas fa-hand-holding-usd" style="padding-right: 10px;color: #4a148c;"></i> Revenue : $500K</li>
+        </ul>
+    </div>
+</div>
+
+        <div class="card engagement-metrics">
+            <h2><i class="fas fa-chart-line"></i> Engagement Metrics</h2>
+            <div class="metrics card-metrics">
+                <div class="metric">
+                    <i class="fas fa-paper-plane"></i>
+                    <h3>Sent</h3>
+                    <p>500K</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-inbox"></i>
+                    <h3>Delivered</h3>
+                    <p>420K</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-envelope-open"></i>
+                    <h3>Opened</h3>
+                    <p>328K</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-hand-pointer"></i>
+                    <h3>Engagement</h3>
+                    <p>135K</p>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-percentage" style="color: #4a148c;"></i>
+                    <h3>Engagement Rate</h3>
+                    <p>14%</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card performance-trend">
+    <h2><i class="fas fa-chart-line"></i> Performance Trend</h2>
+    <canvas id="performanceChart"></canvas>
+    <div id="chartPopup">
+        <div><strong>Date:</strong> Oct 2024</div>
+        <div><strong>Sent:</strong> 15k</div>
+        <div><strong>Delivered:</strong> 12k</div>
+    </div>
+</div>
+
+
+       <div class="card table-card">
+    <h2><i class="fas fa-users"></i> Sales Rep</h2>
+    <div style="max-height: 400px; overflow-y: auto; overflow-x: auto;">
+        <table style="min-width: 800px;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Store</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Total Opportunities</th>
+                    <th>Chase</th>
+                    <th>Proposal</th>
+                    <th>Contracting</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Hygiene Score</th>
+                    <th>Conversion Rate</th>
+                    <th>NPS Score</th>
+                    <th>Goal Completion %</th>
+                    <th>Engage Sentiment</th>
+                    <th>Positive</th>
+                    <th>Neutral</th>
+                    <th>Negative</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alex Smith</td>
+                    <td>Lowe's of Anchorage, AK</td>
+                    <td>Anchorage</td>
+                    <td>Northeast</td>
+                    <td>40</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>85%</td>
+                    <td>35%</td>
+                    <td>75</td>
+                    <td>80%</td>
+                    <td>Good</td>
+                    <td>80</td>
+                    <td>10</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Jamie Chen</td>
+                    <td>Lowe's of Jonesboro</td>
+                    <td>Wasilla</td>
+                    <td>Southwest</td>
+                    <td>20</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>90%</td>
+                    <td>40%</td>
+                    <td>80</td>
+                    <td>90%</td>
+                    <td>Excellent</td>
+                    <td>100</td>
+                    <td>15</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Morgan Green</td>
+                    <td>Lowe's of Carefree, AZ</td>
+                    <td>Carefree</td>
+                    <td>West</td>
+                    <td>35</td>
+                    <td>12</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>80%</td>
+                    <td>35%</td>
+                    <td>70</td>
+                    <td>75%</td>
+                    <td>Average</td>
+                    <td>70</td>
+                    <td>20</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Dana White</td>
+                    <td>Lowe's of Prescott</td>
+                    <td>Chandler</td>
+                    <td>Southeast</td>
+                    <td>28</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>75%</td>
+                    <td>25%</td>
+                    <td>65</td>
+                    <td>70%</td>
+                    <td>Average</td>
+                    <td>60</td>
+                    <td>20</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Riley Brown</td>
+                    <td>Lowe's of Sierra Vista</td>
+                    <td>Mesa</td>
+                    <td>Midwest</td>
+                    <td>37</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>85%</td>
+                    <td>38%</td>
+                    <td>78</td>
+                    <td>85%</td>
+                    <td>Good</td>
+                    <td>90</td>
+                    <td>5</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Sam Johnson</td>
+                    <td>Lowe's of Phoenix</td>
+                    <td>Phoenix</td>
+                    <td>Southwest</td>
+                    <td>45</td>
+                    <td>18</td>
+                    <td>10</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>88%</td>
+                    <td>40%</td>
+                    <td>82</td>
+                    <td>95%</td>
+                    <td>Excellent</td>
+                    <td>120</td>
+                    <td>15</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Chris Lee</td>
+                    <td>Lowe's of Tucson</td>
+                    <td>Tucson</td>
+                    <td>Southwest</td>
+                    <td>32</td>
+                    <td>11</td>
+                    <td>7</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>80%</td>
+                    <td>30%</td>
+                    <td>76</td>
+                    <td>80%</td>
+                    <td>Average</td>
+                    <td>70</td>
+                    <td>18</td>
+                    <td>12</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+    <div class="card container2">
+        <div class="header2">
+            <h1>Opportunities (80)</h1>
+            <div class="search-container" style="position: absolute;right: 220px;top: 40px;">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" placeholder="Search Anything" class="search-input">
+</div>
+        <button class="create-opportunity2"><b>+ </b> Create Opportunity</button>
+        
+    </div>
+
+        <div class="filters2">
+            <!-- Pivot By Dropdown -->
+            <select style="border: 1px solid #4a148c;">
+                <option selected>Pivot By</option>
+                <option value="all-opportunities">All Opportunities (52)</option>
+                <option value="chase">Chase (3)</option>
+                <option value="proposal">Proposal (0)</option>
+                <option value="contracting">Contracting (0)</option>
+                <option value="won">Won (12)</option>
+                <option value="lost">Lost (12)</option>
+            </select>
+
+            <!-- Sales Rep Dropdown -->
+            <select style="border: 1px solid #4a148c;">
+                <option selected>Sales Rep</option>
+                <option value="all-leads">All Leads (52)</option>
+                <option value="alex-smith">Alex Smith (3)</option>
+                <option value="morgan-green">Morgan Green (44)</option>
+                <option value="riley-brown">Riley Brown (0)</option>
+                <option value="dena-white">Dena White (0)</option>
+                <option value="jordan-lee">Jordan Lee (0)</option>
+                <option value="jamie-chen">Jamie Chen (0)</option>
+            </select>
+        </div>
+
+        <!-- Opportunity 1 -->
+        <div class="opportunity2">
+            <div class="opportunity-header2">
+                <div class="left2">
+                    <div class="icon2 high-value"><i class="fas fa-fire"></i></div>
+                    <div class="details2">
+                        <h2>Stock Clearance Offer</h2>
+                        <div class="tags2">
+                            <span class="value-tag2">High Value</span>
+                            <span class="hygiene-tag2">Hygiene: 5/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right2">
+                    <img src="Images/faculty1.jpeg" alt="Profile Picture" class="profile-img2">
+                    <span class="professor-name2">Andrew George</span>
+                    <div class="contact-icons2">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider2" />
+            <div class="opportunity-info2">
+                <div class="info-item2"><strong>Status:</strong> <span>Proposal</span></div>
+                <div class="info-item2"><strong>Products:</strong> <span>5 Products</span></div>
+                <div class="info-item2"><strong>Revenue:</strong> <span>$40,000</span></div>
+                <div class="info-item2"><strong>Sales Person:</strong> <span>Alex Lobo</span></div>
+                <div class="info-item2"><strong>Expected Closure:</strong> <span>20 Aug 24 (33 days)</span></div>
+                <div class="info-item2"><strong>Last Activity: 19 July 24</strong> <span><a href="#">Presentation attached</a></span></div>
+            </div>
+        </div>
+
+        <!-- Opportunity 2 -->
+        <div class="opportunity2">
+            <div class="opportunity-header2">
+                <div class="left2">
+                    <div class="icon2 high-value"><i class="fas fa-fire"></i></div>
+                    <div class="details2">
+                        <h2>Summer Patio Furniture Sale</h2>
+                        <div class="tags2">
+                            <span class="value-tag2">High Value</span>
+                            <span class="hygiene-tag2">Hygiene: 5/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right2">
+                    <img src="Images/faculty2.jpeg" alt="Profile Picture" class="profile-img2">
+                    <span class="professor-name2">Ananya Patidar</span>
+                    <div class="contact-icons2">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider2" />
+            <div class="opportunity-info2">
+                <div class="info-item2"><strong>Status:</strong> <span>Contracting</span></div>
+                <div class="info-item2"><strong>Products:</strong> <span>10 Products</span></div>
+                <div class="info-item2"><strong>Revenue:</strong> <span>$10,000</span></div>
+                <div class="info-item2"><strong>Sales Person:</strong> <span>Jordan Lee</span></div>
+                <div class="info-item2"><strong>Expected Closure:</strong> <span>30 Sep 24 (70 days)</span></div>
+                <div class="info-item2"><strong>Last Activity: 15 July 24</strong> <span> <a href="#">Follow-up email</a></span></div>
+            </div>
+        </div>
+
+        <!-- Opportunity 3 -->
+        <div class="opportunity2">
+            <div class="opportunity-header2">
+                <div class="left2">
+                    <div class="icon2 high-value"><i class="fas fa-snowflake" style="color: #4a148c;"></i></div>
+                    <div class="details2">
+                        <h2>End-of-Season Clearance</h2>
+                        <div class="tags2">
+                            <span class="value-tag2">Low Value</span>
+                            <span class="hygiene-tag2">Hygiene: 2/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right2">
+                    <img src="Images/faculty3.jpeg" alt="Profile Picture" class="profile-img2">
+                    <span class="professor-name2">Subhash Modi</span>
+                    <div class="contact-icons2">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider2" />
+            <div class="opportunity-info2">
+                <div class="info-item2"><strong>Status:</strong> <span>Lost</span></div>
+                <div class="info-item2"><strong>Products:</strong> <span>3 Products</span></div>
+                <div class="info-item2"><strong>Revenue:</strong> <span>$2,000</span></div>
+                <div class="info-item2"><strong>Sales Person:</strong> <span>Dena White</span></div>
+                <div class="info-item2"><strong>Expected Closure:</strong> <span>01 Jul 24 (10 days)</span></div>
+                <div class="info-item2"><strong>Last Activity: 05 June 24</strong> <span><a href="#">Proposal sent</a></span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var ctx = document.getElementById('performanceChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['07/27', '07/28', '07/29', '07/30', '07/31', '08/01', '08/02'],
+            datasets: [{
+                label: 'Sent',
+                data: [10, 15, 13, 12, 15, 18, 15],
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }, {
+                label: 'Delivered',
+                data: [8, 12, 11, 9, 12, 15, 13],
+                borderColor: 'rgb(255, 159, 64)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
