@@ -22,6 +22,7 @@ Check out the live demo [here](https://rohit054.github.io/Static-Admin-Portal/).
 - HTML
 - CSS
 - JavaScript
+- React.JS
 - Chart.js (for charting)
 - Font Awesome (for icons)
 
